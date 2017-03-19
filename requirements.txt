@@ -1,0 +1,9 @@
+# Flask
+flask
+
+gunicorn
+phonenumbers
+
+# Slack
+slackclient
+requests==2.11.1

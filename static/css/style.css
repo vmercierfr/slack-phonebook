@@ -1,0 +1,71 @@
+/*
+ * Global
+ */
+
+a:hover {
+    /* Remove text-decoration on links */
+    text-decoration: none;
+}
+
+.panel-body {
+    /* Remove bottom padding of panel-body */
+    padding: 15px 15px 0 15px;
+}
+
+.glyphicon, .icon {
+    /* Add right margin on icons */
+    margin-right: 5px;
+}
+
+.picture {
+    /* Use large picture */
+    width: 100%;
+    max-width: 400px;
+}
+
+.footer {
+    /* Light footer */
+    color: #C0C0C0;
+    font-size: 0.8em;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.footer a {
+    /* Force link color */
+    color: #C0C0C0;
+}
+
+.panel-footer {
+    /* Hide extra content for small screens */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*
+ * Responsive design
+ */
+
+@media only screen
+and (max-device-width : 768px)
+and (orientation : portrait) {
+    /* Small device */
+    /* Use large text and large image */
+    body {
+        font-size: 2.5em;
+    }
+    .picture {
+        max-width: 700px;
+    }
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+    /* Medium device */
+    /* Use larger text */
+    body {
+        font-size: 1.8em;
+    }
+}
