@@ -30,6 +30,9 @@ def home():
 
     # Set config
     config = {
+        "cache": {
+            "expiration": os.getenv('CACHE_EXPIRATION', 43200)
+        }
         "page": {
             "message": os.getenv('PAGE_MESSAGE', 'Here is the team!'),
             "title": os.getenv('PAGE_TITLE', 'Slack phonebook'),
@@ -49,7 +52,7 @@ def home():
     users = cache.get('users')
     if users is None:
         users = get_users(app)
-        cache.set('users', users, timeout=5 * 60)
+        cache.set('users', users, timeout=config.cache.expiration)
 
     return render_template('home.html', users=users, config=config)
 
