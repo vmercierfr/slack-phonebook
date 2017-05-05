@@ -1,19 +1,38 @@
-function linkDownload(a, filename, content) {
+function linkDownload(downloader, filename, content) {
+    /**
+     * Set download link settings
+     * @param {String} downloader - Reference to HTML element
+     * @param {String} filename - Filename of the file to download
+     * @param {String} content - Content of the file
+     */
     contentType =  'data:application/octet-stream,';
     uriContent = contentType + encodeURIComponent(content);
-    a.setAttribute('href', uriContent);
-    a.setAttribute('download', filename);
+    downloader.setAttribute('href', uriContent);
+    downloader.setAttribute('download', filename);
 }
 
 function download(filename, content) {
-    var a = document.createElement('a');
-    linkDownload(a, filename, content);
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    /**
+     * Force to download of the specified content
+     * @param {String} filename - Filename of the file to download
+     * @param {String} content - Content of the file
+     */
+    var downloader = document.createElement('a');
+    linkDownload(downloader, filename, content);
+    document.body.appendChild(downloader);
+    downloader.click();
+    document.body.removeChild(downloader);
 }
 
 function vcard(id, firstname, lastname, title, email, phone) {
+    /**
+     * Download vcard
+     * @param {Number} firstname - User id
+     * @param {String} lastname - Firstname
+     * @param {String} title - Title
+     * @param {String} email - Email
+     * @param {String} phone - Phone
+     */
     var vcard = 'BEGIN:VCARD\n';
     vcard = vcard + 'VERSION:4.0\n';
     vcard = vcard + "N:" + lastname + ';' + firstname + ';;;\n';

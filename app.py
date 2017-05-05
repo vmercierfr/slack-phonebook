@@ -25,8 +25,10 @@ if os.getenv('DEBUG', False):
 @app.route("/")
 def home():
     """
-    Homepage contain phonebook
+    Homepage
     """
+
+    # Set config
     config = {
         "page": {
             "message": os.getenv('PAGE_MESSAGE', 'Here is the team!'),
@@ -43,6 +45,7 @@ def home():
         "version": VERSION,
     }
 
+    # Get users
     users = cache.get('users')
     if users is None:
         users = get_users(app)
