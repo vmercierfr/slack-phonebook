@@ -50,7 +50,7 @@ def get_users(app):
             'team_id': user['team_id'],
             'name': user['name'],
             'deleted': user['deleted'],
-            'status': user['status'],
+            #'status': user['status'],
             'real_name': user['real_name'],
             'tz': user['tz'],
             'tz_label': user['tz_label'],

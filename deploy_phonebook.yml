@@ -1,0 +1,19 @@
+---
+
+- name: Install Slack phonebook
+  hosts: docker
+  tasks:
+
+    - name: Pull docker image
+      docker_image:
+        name: "vmercier/slack-phonebook"
+        tag: "latest"
+
+    - name: Start docker container
+      docker_container:
+        name: slack-phonebook
+        image: "vmercier/slack-phonebook"
+        state: started
+        restart_policy: always
+        ports: "8000:80"
+        env: "SLACK_TOKEN=xyz"
